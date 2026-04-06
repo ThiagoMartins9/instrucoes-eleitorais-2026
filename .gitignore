@@ -1,0 +1,21 @@
+# Configurações locais do editor
+.claude/
+
+# Resoluções antigas (substituídas pelas versões 2026)
+RESOLUÇÃO Nº 23.600*
+RESOLUÇÃO Nº 23.605*
+RESOLUÇÃO Nº 23.607*
+RESOLUÇÃO Nº 23.608*
+RESOLUÇÃO Nº 23.609*
+RESOLUÇÃO Nº 23.610*
+RESOLUÇÃO Nº 23.735*
+
+# Arquivos de texto extraídos e scripts utilitários
+*.txt
+extract_text.py
+
+# Arquivos duplicados na raiz (versões corretas estão em css/, js/, icons/)
+/style.css
+/app.js
+/data.js
+/icon.svg

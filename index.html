@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1B3A6B">
+  <meta name="description" content="Guia completo das resoluções do TSE para as Eleições Brasileiras de 2026. Calendário, condutas vedadas, propaganda eleitoral e mais.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Eleições 2026">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Instruções Eleitorais 2026 — TSE">
+  <meta property="og:description" content="Guia completo das resoluções do TSE para as Eleições Gerais de 2026.">
+  <meta property="og:type" content="website">
+
+  <title>Instruções Eleitorais 2026 — TSE</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Registrar Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+</head>
+<body>
+
+<!-- ── Banner de Instalação ────────────────────────── -->
+<div class="install-banner" id="install-banner">
+  <p>📲 Instale o app para acesso offline!</p>
+  <button class="btn-install" id="btn-install">Instalar</button>
+  <button class="btn-dismiss" id="btn-dismiss-install" title="Fechar">✕</button>
+</div>
+
+<!-- ── Header ─────────────────────────────────────── -->
+<header class="app-header">
+  <div class="header-logo">
+    <img src="./icons/icon.svg" alt="Ícone Eleições 2026" width="36" height="36">
+    <div class="header-title">
+      Instruções Eleitorais
+      <span>TSE • Eleições Gerais 2026 <span class="offline-badge">OFFLINE</span></span>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button class="btn-icon" title="Buscar" onclick="navegarPara('busca')" aria-label="Buscar">🔍</button>
+  </div>
+</header>
+
+<!-- ── Sidebar (Desktop) ───────────────────────────── -->
+<aside class="app-sidebar" role="navigation" aria-label="Menu principal">
+  <ul class="sidebar-nav">
+    <li>
+      <a href="#inicio" data-section="inicio" class="active" aria-label="Ir para Início">
+        <span class="nav-icon">🏠</span>
+        <span>Início</span>
+      </a>
+    </li>
+    <li>
+      <a href="#calendario" data-section="calendario" aria-label="Ir para Calendário Eleitoral">
+        <span class="nav-icon">📅</span>
+        <span>Calendário Eleitoral</span>
+      </a>
+    </li>
+    <li>
+      <a href="#condutas" data-section="condutas" aria-label="Ir para Condutas Vedadas">
+        <span class="nav-icon">🚫</span>
+        <span>Condutas Vedadas</span>
+      </a>
+    </li>
+    <li>
+      <a href="#propaganda" data-section="propaganda" aria-label="Ir para Propaganda Eleitoral">
+        <span class="nav-icon">📢</span>
+        <span>Propaganda Eleitoral</span>
+      </a>
+    </li>
+    <li>
+      <a href="#busca" data-section="busca" aria-label="Ir para Busca">
+        <span class="nav-icon">🔍</span>
+        <span>Busca</span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-version">
+    <strong>Eleições 2026</strong><br>
+    Res. TSE 23.749 · 23.752<br>
+    23.754 · 23.755 · 23.757 · 23.760<br>
+    Data ref.: 06/04/2026
+  </div>
+</aside>
+
+<!-- ── Conteúdo Principal ──────────────────────────── -->
+<main class="app-main" role="main">
+
+  <!-- ════════════════════════════════════════════════
+       SEÇÃO: INÍCIO
+  ════════════════════════════════════════════════ -->
+  <section class="section active" id="section-inicio" aria-label="Início">
+
+    <!-- Hero -->
+    <div class="hero">
+      <span class="hero-icon">🗳️</span>
+      <h1>Eleições Gerais 2026</h1>
+      <p>Guia completo com o calendário, condutas, propaganda e normas do TSE para as eleições de outubro de 2026.</p>
+      <span class="hero-badge">1º Turno: 04/10/2026</span>
+    </div>
+
+    <!-- Contador regressivo -->
+    <div id="countdown-container"></div>
+
+    <!-- Cards de atalho -->
+    <div class="shortcut-grid">
+      <div class="shortcut-card" onclick="navegarPara('calendario')" role="button" tabindex="0" aria-label="Ver calendário eleitoral">
+        <span class="sc-icon">📅</span>
+        <span class="sc-label">Calendário</span>
+      </div>
+      <div class="shortcut-card" onclick="navegarPara('condutas')" role="button" tabindex="0" aria-label="Ver condutas vedadas">
+        <span class="sc-icon">🚫</span>
+        <span class="sc-label">Condutas Vedadas</span>
+      </div>
+      <div class="shortcut-card" onclick="navegarPara('propaganda')" role="button" tabindex="0" aria-label="Ver regras de propaganda">
+        <span class="sc-icon">📢</span>
+        <span class="sc-label">Propaganda</span>
+      </div>
+      <div class="shortcut-card" onclick="navegarPara('busca')" role="button" tabindex="0" aria-label="Buscar informações">
+        <span class="sc-icon">🔍</span>
+        <span class="sc-label">Buscar</span>
+      </div>
+    </div>
+
+    <!-- Próximos prazos -->
+    <div class="proximos-prazos">
+      <h3>🗓️ Prazos Recentes e Próximos</h3>
+      <div id="proximos-prazos-list"></div>
+      <div style="text-align:center;margin-top:0.5rem;">
+        <button onclick="navegarPara('calendario')" style="color:var(--color-primary);font-size:0.82rem;font-weight:600;background:none;border:none;cursor:pointer;">
+          Ver calendário completo →
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards informativos -->
+    <div class="section-inner" style="padding-top:0;">
+
+      <!-- Registro de Candidatura -->
+      <div id="section-registro">
+        <div class="info-card" style="border-left-color: var(--color-secondary);">
+          <h3>📋 Registro de Candidatura (Res. 23.754)</h3>
+          <p>Prazo final para registro no TSE: <strong>15 de agosto de 2026</strong></p>
+        </div>
+
+        <div class="prazo-destaque">
+          ⏰ Prazo final para registro: 15/08/2026
+        </div>
+
+        <div class="detail-section">
+          <h3>✅ Requisitos</h3>
+          <ul id="registro-requisitos"></ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>📄 Documentos Necessários</h3>
+          <ul id="registro-documentos"></ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>🏛️ Cargos nas Eleições 2026</h3>
+          <div class="cargos-grid" id="registro-cargos"></div>
+        </div>
+      </div>
+
+      <!-- Fundos de Campanha -->
+      <div id="section-fundos" style="margin-top:1.5rem;">
+        <div class="info-card">
+          <h3>💰 Fundos de Campanha (Res. 23.749)</h3>
+          <p>FEFC disponibilizado ao TSE a partir de <strong>01/06/2026</strong></p>
+        </div>
+
+        <div class="detail-section">
+          <h3>💵 Fontes Permitidas</h3>
+          <ul id="fundos-fontes"></ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>🚫 Vedações</h3>
+          <ul id="fundos-vedacoes"></ul>
+        </div>
+
+        <div class="detail-section">
+          <h3>📅 Prazos</h3>
+          <ul id="fundos-prazos"></ul>
+        </div>
+      </div>
+
+      <!-- Prestação de Contas -->
+      <div id="section-contas" style="margin-top:1.5rem;">
+        <div class="info-card" style="border-left-color: var(--color-success);">
+          <h3>📊 Prestação de Contas (Res. 23.752)</h3>
+          <p>Todos os candidatos (eleitos e não eleitos) devem prestar contas.</p>
+        </div>
+
+        <div class="detail-section">
+          <h3>📅 Prazos de Entrega</h3>
+          <div id="contas-prazos"></div>
+        </div>
+
+        <div class="detail-section">
+          <h3>📋 Resultados Possíveis</h3>
+          <div id="contas-resultados"></div>
+        </div>
+
+        <div class="detail-section">
+          <h3>⚠️ Consequências de Irregularidades</h3>
+          <ul id="contas-consequencias"></ul>
+        </div>
+      </div>
+
+      <!-- Ilícitos Eleitorais -->
+      <div id="section-ilicitos" style="margin-top:1.5rem;">
+        <div class="info-card" style="border-left-color: var(--color-danger);">
+          <h3>⚖️ Ilícitos Eleitorais (Res. 23.757)</h3>
+          <p>Crimes, infrações e seus efeitos previstos na legislação eleitoral.</p>
+        </div>
+
+        <div class="detail-section">
+          <h3>🔴 Crimes Eleitorais</h3>
+          <div id="ilicitos-crimes"></div>
+        </div>
+
+        <div class="detail-section">
+          <h3>⚡ Abuso de Poder</h3>
+          <div id="ilicitos-abuso"></div>
+        </div>
+
+        <div class="detail-section">
+          <h3>📝 Representações e Reclamações</h3>
+          <ul id="ilicitos-representacoes"></ul>
+        </div>
+      </div>
+
+      <!-- Documentos -->
+      <div id="section-documentos" style="margin-top:1.5rem;">
+        <div class="info-card">
+          <h3>📂 Documentos e Resoluções</h3>
+          <p>Acesse os PDFs originais das resoluções do TSE.</p>
+        </div>
+        <div class="docs-list" id="docs-list"></div>
+      </div>
+
+    </div><!-- /section-inner -->
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       SEÇÃO: CALENDÁRIO
+  ════════════════════════════════════════════════ -->
+  <section class="section" id="section-calendario" aria-label="Calendário Eleitoral">
+    <div class="section-header">
+      <h2>📅 Calendário Eleitoral 2026</h2>
+      <p>Res. 23.760 — Datas e prazos das Eleições Gerais</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="calendar-filters" role="group" aria-label="Filtrar calendário">
+      <button class="filter-btn active" data-filtro="todos">Todos</button>
+      <button class="filter-btn" data-filtro="proximos">Próximos 60 dias</button>
+      <button class="filter-btn" data-filtro="eleicao">🗳️ Eleição</button>
+      <button class="filter-btn" data-filtro="campanha">📢 Campanha</button>
+      <button class="filter-btn" data-filtro="prazo">⏰ Prazos</button>
+      <button class="filter-btn" data-filtro="vedacao">🚫 Vedações</button>
+      <button class="filter-btn" data-filtro="passados">Passados</button>
+    </div>
+
+    <!-- Lista de eventos -->
+    <div class="calendar-list" id="calendar-list" role="list"></div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       SEÇÃO: CONDUTAS VEDADAS
+  ════════════════════════════════════════════════ -->
+  <section class="section" id="section-condutas" aria-label="Condutas Vedadas">
+    <div class="section-header">
+      <h2>🚫 Condutas Vedadas</h2>
+      <p>Manual de comportamento dos agentes públicos — Eleições 2026</p>
+    </div>
+
+    <div class="section-inner" style="padding-top:0.75rem;">
+      <div class="info-card" style="border-left-color:var(--color-danger);">
+        <h3>⚠️ Atenção aos Prazos</h3>
+        <p>Algumas vedações já estão em vigor desde <strong>01/01/2026</strong>. As principais restrições para agentes públicos iniciam em <strong>04/07/2026</strong> (3 meses antes do 1º turno).</p>
+      </div>
+    </div>
+
+    <div class="condutas-list" id="condutas-list" role="list"></div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       SEÇÃO: PROPAGANDA ELEITORAL
+  ════════════════════════════════════════════════ -->
+  <section class="section" id="section-propaganda" aria-label="Propaganda Eleitoral">
+    <div class="section-header">
+      <h2>📢 Propaganda Eleitoral</h2>
+      <p>Res. 23.755 — Regras para veiculação de propaganda</p>
+    </div>
+
+    <!-- Período -->
+    <div class="prop-periodo-box">
+      <div class="prop-periodo-item">
+        <div class="label">🟢 Início</div>
+        <div class="value">16/08/2026</div>
+      </div>
+      <div class="prop-periodo-item">
+        <div class="label">🔴 Fim</div>
+        <div class="value">03/10/2026</div>
+      </div>
+      <div class="prop-periodo-item">
+        <div class="label">📅 Duração</div>
+        <div class="value">49 dias</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="prop-tabs" role="tablist" aria-label="Tipos de propaganda">
+      <button class="prop-tab active" data-tab="permitido" role="tab" aria-selected="true">✅ Permitido</button>
+      <button class="prop-tab" data-tab="vedado" role="tab" aria-selected="false">🚫 Vedado</button>
+      <button class="prop-tab" data-tab="internet" role="tab" aria-selected="false">🌐 Internet</button>
+      <button class="prop-tab" data-tab="radiotv" role="tab" aria-selected="false">📺 Rádio/TV</button>
+    </div>
+
+    <!-- Conteúdo das tabs -->
+    <div id="prop-permitido" class="prop-tab-content active" role="tabpanel"></div>
+    <div id="prop-vedado" class="prop-tab-content" role="tabpanel"></div>
+    <div id="prop-internet" class="prop-tab-content" role="tabpanel"></div>
+    <div id="prop-radiotv" class="prop-tab-content" role="tabpanel"></div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       SEÇÃO: BUSCA
+  ════════════════════════════════════════════════ -->
+  <section class="section" id="section-busca" aria-label="Busca">
+    <div class="section-header">
+      <h2>🔍 Busca</h2>
+      <p>Pesquise em todo o conteúdo do app</p>
+    </div>
+
+    <div class="search-box-wrapper">
+      <div class="search-input-group" role="search">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Buscar: propaganda, vedação, candidatura..."
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          aria-label="Campo de busca"
+        >
+        <button class="search-clear" id="search-clear" title="Limpar busca" aria-label="Limpar busca">✕</button>
+      </div>
+    </div>
+
+    <div class="search-results" id="search-results" role="region" aria-live="polite"></div>
+  </section>
+
+</main>
+
+<!-- ── Navegação Inferior (Mobile) ────────────────── -->
+<nav class="app-bottom-nav" role="navigation" aria-label="Navegação principal">
+  <button class="bottom-nav-item active" data-section="inicio" aria-label="Início">
+    <span class="nav-icon" aria-hidden="true">🏠</span>
+    <span>Início</span>
+  </button>
+  <button class="bottom-nav-item" data-section="calendario" aria-label="Calendário">
+    <span class="nav-icon" aria-hidden="true">📅</span>
+    <span>Calendário</span>
+  </button>
+  <button class="bottom-nav-item" data-section="condutas" aria-label="Condutas">
+    <span class="nav-icon" aria-hidden="true">🚫</span>
+    <span>Condutas</span>
+  </button>
+  <button class="bottom-nav-item" data-section="propaganda" aria-label="Propaganda">
+    <span class="nav-icon" aria-hidden="true">📢</span>
+    <span>Propaganda</span>
+  </button>
+  <button class="bottom-nav-item" data-section="busca" aria-label="Busca">
+    <span class="nav-icon" aria-hidden="true">🔍</span>
+    <span>Busca</span>
+  </button>
+</nav>
+
+<!-- ── Toast ───────────────────────────────────────── -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ── Scripts ────────────────────────────────────── -->
+<script src="./js/data.js"></script>
+<script src="./js/app.js"></script>
+
+<!-- Script inline: renderizar seções que dependem de dados da página inicial -->
+<script>
+(function() {
+  // Registro - Requisitos
+  const elReq = document.getElementById('registro-requisitos');
+  if (elReq) {
+    elReq.innerHTML = APP_DATA.registro.requisitos
+      .map(r => `<li>${r}</li>`).join('');
+  }
+
+  // Registro - Documentos
+  const elDoc = document.getElementById('registro-documentos');
+  if (elDoc) {
+    elDoc.innerHTML = APP_DATA.registro.documentos
+      .map(d => `<li>${d}</li>`).join('');
+  }
+
+  // Registro - Cargos
+  const elCargos = document.getElementById('registro-cargos');
+  if (elCargos) {
+    elCargos.innerHTML = APP_DATA.registro.cargos
+      .map(c => `
+        <div class="cargo-item">
+          <span class="cargo-name">${c.icon} ${c.cargo}</span>
+          <span class="cargo-obs">${c.obs}</span>
+        </div>
+      `).join('');
+  }
+
+  // Fundos - Fontes
+  const elFontes = document.getElementById('fundos-fontes');
+  if (elFontes) {
+    elFontes.innerHTML = APP_DATA.fundos.fontesPermitidas
+      .map(f => `<li>${f}</li>`).join('');
+  }
+
+  // Fundos - Vedações
+  const elFVed = document.getElementById('fundos-vedacoes');
+  if (elFVed) {
+    elFVed.innerHTML = APP_DATA.fundos.vedacoes
+      .map(v => `<li>${v}</li>`).join('');
+  }
+
+  // Fundos - Prazos
+  const elFPrazos = document.getElementById('fundos-prazos');
+  if (elFPrazos) {
+    elFPrazos.innerHTML = APP_DATA.fundos.prazos
+      .map(p => `<li>${p}</li>`).join('');
+  }
+
+  // Contas - Prazos
+  const elCPrazos = document.getElementById('contas-prazos');
+  if (elCPrazos) {
+    elCPrazos.innerHTML = APP_DATA.prestacaoContas.prazos
+      .map(p => `
+        <div style="background:var(--color-bg);border-radius:6px;padding:0.6rem 0.75rem;margin-bottom:0.4rem;">
+          <div style="font-size:0.82rem;font-weight:600;color:var(--color-primary)">${p.quem}</div>
+          <div style="font-size:0.78rem;color:var(--color-text-muted)">${p.prazo}</div>
+        </div>
+      `).join('');
+  }
+
+  // Contas - Resultados
+  const elCRes = document.getElementById('contas-resultados');
+  if (elCRes) {
+    elCRes.innerHTML = APP_DATA.prestacaoContas.resultados
+      .map(r => `
+        <div class="contas-result">
+          <div class="contas-dot ${r.cor}"></div>
+          <div class="contas-content">
+            <div class="contas-nome">${r.resultado}</div>
+            <div class="contas-desc">${r.desc}</div>
+          </div>
+        </div>
+      `).join('');
+  }
+
+  // Contas - Consequências
+  const elCCons = document.getElementById('contas-consequencias');
+  if (elCCons) {
+    elCCons.innerHTML = APP_DATA.prestacaoContas.consequencias
+      .map(c => `<li>${c}</li>`).join('');
+  }
+
+  // Ilícitos - Crimes
+  const elIlCrimes = document.getElementById('ilicitos-crimes');
+  if (elIlCrimes) {
+    elIlCrimes.innerHTML = APP_DATA.ilicitos.crimes.map(crime => `
+      <div class="crime-card">
+        <h4>${crime.nome}</h4>
+        <div class="crime-base">${crime.base}</div>
+        <div class="crime-desc">${crime.desc}</div>
+        <span class="crime-pena">⚖️ ${crime.pena}</span>
+      </div>
+    `).join('');
+  }
+
+  // Ilícitos - Abuso
+  const elIlAbuso = document.getElementById('ilicitos-abuso');
+  if (elIlAbuso) {
+    elIlAbuso.innerHTML = APP_DATA.ilicitos.abusoDePoder.map(ab => `
+      <div class="abuso-card">
+        <h4>${ab.tipo}</h4>
+        <p>${ab.desc}</p>
+        <div class="consequencia">⚠️ ${ab.consequencia}</div>
+      </div>
+    `).join('');
+  }
+
+  // Ilícitos - Representações
+  const elIlRep = document.getElementById('ilicitos-representacoes');
+  if (elIlRep) {
+    elIlRep.innerHTML = APP_DATA.ilicitos.representacoes
+      .map(r => `<li>${r}</li>`).join('');
+  }
+
+  // Documentos
+  const elDocs = document.getElementById('docs-list');
+  if (elDocs) {
+    elDocs.innerHTML = APP_DATA.documentos.map(doc => `
+      <a class="doc-item" href="${doc.arquivo}" target="_blank" rel="noopener" title="Abrir ${doc.titulo}">
+        <span class="doc-icon">${doc.icone}</span>
+        <div class="doc-info">
+          <div class="doc-title">${doc.titulo}</div>
+          <div class="doc-subtitle">${doc.subtitulo}</div>
+        </div>
+        <span class="doc-arrow">↗</span>
+      </a>
+    `).join('');
+  }
+})();
+</script>
+
+</body>
+</html>

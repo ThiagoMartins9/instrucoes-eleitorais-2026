@@ -1,0 +1,38 @@
+{
+  "name": "Instruções Eleitorais 2026",
+  "short_name": "Eleições 2026",
+  "description": "Guia completo das resoluções do TSE para as Eleições Brasileiras de 2026",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1B3A6B",
+  "background_color": "#ffffff",
+  "lang": "pt-BR",
+  "categories": ["government", "education", "reference"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Calendário Eleitoral",
+      "short_name": "Calendário",
+      "description": "Ver o calendário completo das eleições 2026",
+      "url": "./index.html#calendario",
+      "icons": [{ "src": "./icons/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Buscar",
+      "short_name": "Busca",
+      "description": "Buscar informações eleitorais",
+      "url": "./index.html#busca",
+      "icons": [{ "src": "./icons/icon.svg", "sizes": "any" }]
+    }
+  ]
+}
