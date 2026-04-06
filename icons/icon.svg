@@ -20,8 +20,6 @@
   <rect x="168" y="338" width="128" height="28" rx="4" fill="#27AE60" opacity="0.8"/>
   <!-- Checkmark no botão -->
   <polyline points="186,352 200,364 258,344" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Estrela / brasao simplificado no topo -->
-  <polygon points="256,60 268,95 305,95 276,116 287,151 256,130 225,151 236,116 207,95 244,95" fill="#F5A623"/>
-  <!-- Texto BR -->
+  <!-- Texto 2026 -->
   <text x="256" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff" opacity="0.9">2026</text>
 </svg>
